@@ -1,225 +1,626 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Дина Ахмедова — Репетитор по английскому и начальной школе</title>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;600;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>English Tutor - Преподаватель английского</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <style>
-    :root{
-      --bg1: #ffecd2;
-      --bg2: #fcb69f;
-      --accent1: #ff6b6b;
-      --accent2: #ffd93d;
-      --card:#ffffff;
-      --glass: rgba(255,255,255,0.7);
-      --text:#2b2b2b;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family: 'Nunito', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-      color:var(--text);
-      background: linear-gradient(135deg,var(--bg1),var(--bg2));
-      -webkit-font-smoothing:antialiased;
-      line-height:1.4;
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #2d3436;
+      line-height: 1.6;
     }
-    .container{max-width:1000px;margin:30px auto;padding:20px}
 
-    header.hero{
-      background: linear-gradient(135deg, rgba(255,255,255,0.85), rgba(255,255,255,0.6));
-      border-radius:20px;
-      padding:28px;
-      display:flex;gap:20px;align-items:center;
-      box-shadow:0 8px 30px rgba(0,0,0,0.08);
+    /* Фиксированная навигация */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(90deg, rgba(102, 126, 234, 0.95), rgba(118, 75, 162, 0.95));
+      backdrop-filter: blur(10px);
+      padding: 0 2rem;
+      z-index: 1000;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px;
     }
-    .avatar{
-      width:140px;height:140px;border-radius:18px;flex:0 0 140px;overflow:hidden;
-      display:flex;align-items:center;justify-content:center;font-size:48px;background:linear-gradient(180deg,var(--accent1),#ff9aa2);color:white;font-weight:800
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: #fff;
+      text-decoration: none;
     }
-    h1{margin:0;font-size:28px}
-    p.lead{margin:6px 0 0;font-weight:600;color:#4b463f}
-    .cta{margin-top:14px;display:flex;gap:12px}
-    .btn{padding:10px 16px;border-radius:12px;border:0;cursor:pointer;font-weight:700}
-    .btn-primary{background:linear-gradient(90deg,var(--accent1),#ff8a65);color:white}
-    .btn-outline{background:transparent;border:2px solid rgba(0,0,0,0.08);}
 
-    nav{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}
-    nav a{font-size:14px;text-decoration:none;padding:6px 10px;border-radius:10px;background:var(--glass)}
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
 
-    /* Sections */
-    section{margin-top:26px}
-    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
-    @media (max-width:760px){.grid{grid-template-columns:1fr}}
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      padding: 8px 16px;
+      border-radius: 20px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
 
-    .card{background:var(--card);padding:18px;border-radius:14px;box-shadow:0 6px 20px rgba(0,0,0,0.06)}
-    .small{font-size:14px;color:#575757}
+    nav a:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+    }
 
-    .services ul{list-style:none;padding:0;margin:10px 0 0}
-    .services li{display:flex;gap:12px;align-items:flex-start;padding:8px 0}
-    .pill{min-width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-weight:800;color:white}
+    /* Основной контент */
+    main {
+      margin-top: 70px;
+      padding: 0;
+    }
 
-    .age-card{display:flex;flex-direction:column;gap:8px;padding:12px;border-radius:12px;background:linear-gradient(180deg,#fff7e6,#fff1d6)}
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
 
-    .testimonials .review{padding:12px;border-radius:12px;background:linear-gradient(180deg,#fff,#fff8f0);margin-bottom:10px}
-    .stars{color:#f6b93b}
+    /* Hero секция */
+    .hero {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+      padding: 6rem 2rem;
+      text-align: center;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
 
-    .contact{display:flex;gap:18px;flex-wrap:wrap}
-    .contact form{flex:1;min-width:230px}
-    .contact .info{flex:0 0 260px;padding:12px;border-radius:12px;background:linear-gradient(180deg,#ffffffcc,#fff5e6)}
-    input,textarea{width:100%;padding:10px;border-radius:8px;border:1px solid #eadcd1;margin-top:8px;font-family:inherit}
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 500px;
+      height: 500px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      animation: float 6s ease-in-out infinite;
+    }
 
-    footer{margin-top:24px;text-align:center;color:#4b4b4b;font-size:14px}
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(30px); }
+    }
 
-    /* playful accents */
-    .badge{display:inline-block;padding:6px 10px;background:linear-gradient(90deg,var(--accent2),#ffe082);border-radius:999px;font-weight:800}
-    .logo-small{font-weight:900;color:var(--accent1)}
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 4rem;
+      margin-bottom: 1rem;
+      animation: slideDown 0.8s ease;
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      margin-bottom: 2rem;
+      font-weight: 300;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 14px 32px;
+      border: none;
+      border-radius: 30px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background: #ff6b9d;
+      color: white;
+      box-shadow: 0 8px 20px rgba(255, 107, 157, 0.4);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(255, 107, 157, 0.6);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      border: 2px solid white;
+    }
+
+    .btn-secondary:hover {
+      background: white;
+      color: #667eea;
+    }
+
+    /* О мне */
+    section {
+      padding: 5rem 2rem;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      color: #667eea;
+      margin-bottom: 3rem;
+      text-align: center;
+    }
+
+    #about {
+      background: #f8f9fa;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .about-text h3 {
+      font-size: 1.8rem;
+      color: #667eea;
+      margin-bottom: 1rem;
+    }
+
+    .about-text p {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+      color: #555;
+      line-height: 1.8;
+    }
+
+    .about-features {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .feature {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      background: white;
+      padding: 1.5rem;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .feature:hover {
+      transform: translateX(10px);
+      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.2);
+    }
+
+    .feature-icon {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      color: white;
+      flex-shrink: 0;
+    }
+
+    .feature h4 {
+      color: #667eea;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Программы */
+    #programs {
+      background: linear-gradient(135deg, #667eea15, #764ba215);
+    }
+
+    .programs-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .program-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .program-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #667eea, #764ba2);
+    }
+
+    .program-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(102, 126, 234, 0.2);
+    }
+
+    .program-age {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: #667eea;
+      margin-bottom: 1rem;
+    }
+
+    .program-card p {
+      color: #666;
+      margin-bottom: 1rem;
+      line-height: 1.7;
+    }
+
+    .program-details {
+      background: linear-gradient(135deg, #667eea10, #764ba210);
+      padding: 1rem;
+      border-radius: 12px;
+      font-size: 0.95rem;
+      color: #667eea;
+      font-weight: 600;
+    }
+
+    /* Отзывы */
+    #reviews {
+      background: white;
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .review-card {
+      background: linear-gradient(135deg, #667eea10, #764ba210);
+      padding: 2rem;
+      border-radius: 15px;
+      border-left: 5px solid #ff6b9d;
+      transition: all 0.3s ease;
+    }
+
+    .review-card:hover {
+      box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+      transform: translateY(-5px);
+    }
+
+    .stars {
+      color: #ffc107;
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+    }
+
+    .review-card p {
+      color: #555;
+      font-style: italic;
+      margin-bottom: 1rem;
+    }
+
+    .review-author {
+      font-weight: 700;
+      color: #667eea;
+    }
+
+    /* Контакты */
+    #contact {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      padding: 4rem 2rem;
+    }
+
+    .contact-container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .contact-container h2 {
+      color: white;
+      margin-bottom: 2rem;
+    }
+
+    .contact-form {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 2rem;
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.15);
+      color: white;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      background: rgba(255, 255, 255, 0.25);
+      border-color: white;
+    }
+
+    .contact-info {
+      margin-top: 2rem;
+      text-align: center;
+    }
+
+    .contact-info p {
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+
+    .contact-info strong {
+      color: #ff6b9d;
+    }
+
+    footer {
+      background: #2d3436;
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+    }
+
+    /* Адаптив */
+    @media (max-width: 768px) {
+      nav ul {
+        gap: 1rem;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .about-grid,
+      .programs-grid,
+      .reviews-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 3rem 1rem;
+      }
+
+      section {
+        padding: 3rem 1rem;
+      }
+    }
   </style>
 </head>
 <body>
-  <div class="container">
-    <header class="hero" id="home">
-      <div class="avatar">Д</div>
-      <div style="flex:1">
-        <div style="display:flex;align-items:center;gap:12px">
-          <div class="logo-small">Dina</div>
-          <div class="badge">English & Primary</div>
-        </div>
-        <h1>Дина Ахмедова — репетитор по английскому и начальной школе</h1>
-        <p class="lead">Работаю с детьми 5–15 лет. Весёлые уроки, быстрый прогресс и уверенность в школе.</p>
-        <nav>
-          <a href="#about">Обо мне</a>
-          <a href="#programs">Программы</a>
-          <a href="#reviews">Отзывы</a>
-          <a href="#contact">Контакты</a>
-        </nav>
-        <div class="cta">
-          <button class="btn btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Записаться</button>
-          <button class="btn btn-outline" onclick="document.getElementById('programs').scrollIntoView({behavior:'smooth'})">Посмотреть программы</button>
-        </div>
-      </div>
-    </header>
+  <!-- Фиксированная навигация -->
+  <nav>
+    <a href="#home" class="logo">English ✨</a>
+    <ul>
+      <li><a href="#home">Главная</a></li>
+      <li><a href="#about">Обо мне</a></li>
+      <li><a href="#programs">Программы</a></li>
+      <li><a href="#reviews">Отзывы</a></li>
+      <li><a href="#contact">Контакты</a></li>
+    </ul>
+  </nav>
 
-    <!-- About -->
-    <section id="about" class="grid">
-      <div class="card">
-        <h2>Обо мне</h2>
-        <p class="small">Меня зовут <strong>Дина Ахмедова</strong>. Закончила ТВГУ и НГПУ. Я — учитель по образованию и репетитор с опытом работы с детьми от 5 до 15 лет.</p>
-        <p class="small">Мой подход: игры, песни, короткие диалоги и много повторения — так дети быстро запоминают слова и фразы. Я помогаю подготовиться к школе, подтянуть грамматику и развить уверенность в разговоре.</p>
-      </div>
-      <div class="card services">
-        <h3>ЧЕМ Я ЗАНИМАЮСЬ</h3>
-        <ul>
-          <li><div class="pill" style="background:linear-gradient(180deg,#6bd6ff,#5aa7ff)">A</div><div><strong>Английский язык:</strong> разговорная практика, словарный запас, чтение.</div></li>
-          <li><div class="pill" style="background:linear-gradient(180deg,#ffb199,#ff7a7a)">S</div><div><strong>Начальная школа:</strong> математика, русский язык, подготовка к ВПР.</div></li>
-          <li><div class="pill" style="background:linear-gradient(180deg,#ffd36e,#ffb86e)">P</div><div><strong>Подготовка к тестам:</strong> контроль знаний, домашние задания и объяснение правил простым языком.</div></li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Programs -->
-    <section id="programs">
-      <h2>Программы по возрасту</h2>
-      <div class="grid">
-        <div class="card age-card">
-          <strong>5–7 лет</strong>
-          <div class="small">Игры, песни, карточки. Цель — любовь к языку и базовый словарный запас.</div>
-          <div><em>Формат:</em> 30–40 минут, 1–2 раза в неделю.</div>
-        </div>
-        <div class="card age-card">
-          <strong>8–11 лет</strong>
-          <div class="small">Чтение простых рассказов, грамматика в играх, развитие навыка письма.</div>
-          <div><em>Формат:</em> 45 минут, домашние задания, игровые мини-проекты.</div>
-        </div>
-        <div class="card age-card">
-          <strong>12–15 лет</strong>
-          <div class="small">Углублённая грамматика, разговорная практика и подготовка к экзаменам.</div>
-          <div><em>Формат:</em> 60 минут, индивидуальные планы и повторение.</div>
-        </div>
-        <div class="card">
-          <h3>Почему со мной</h3>
-          <ul class="small">
-            <li>Теплая, дружелюбная атмосфера</li>
-            <li>Индивидуальные планы под каждого ребёнка</li>
-            <li>Регулярная обратная связь для родителей</li>
-          </ul>
+  <main>
+    <!-- Hero -->
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <h1>Learn English with Dina! 🎉</h1>
+        <p>Откройте для себя увлекательный мир английского языка</p>
+        <div class="cta-buttons">
+          <button class="btn btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Записаться на пробный урок</button>
+          <button class="btn btn-secondary" onclick="document.getElementById('programs').scrollIntoView({behavior:'smooth'})">Посмотреть программы</button>
         </div>
       </div>
     </section>
 
-    <!-- Testimonials -->
-    <section id="reviews" class="card testimonials">
-      <h2>Отзывы</h2>
-      <div class="review">
-        <div class="stars">★★★★★</div>
-        <p><strong>Мама Сережи:</strong> "Дина быстро нашла подход к сыну, уроки интересные, и оценки в школе стали лучше!"</p>
-      </div>
-      <div class="review">
-        <div class="stars">★★★★★</div>
-        <p><strong>Ольга, мама Ани:</strong> "Аня стала говорить по-английски смелее. Дина объясняет понятно и весело."</p>
-      </div>
-      <div class="review">
-        <div class="stars">★★★★★</div>
-        <p><strong>Родитель Тимура:</strong> "Материал подаётся интересно. Тимур ждёт уроки и делает домашние с радостью."</p>
-      </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" class="grid">
-      <div class="card contact">
-        <form onsubmit="event.preventDefault(); sendForm();">
-          <h3>Записаться на пробный урок</h3>
-          <label>Имя родителя<br><input id="name" required placeholder="Иванова Мария"></label>
-          <label>Имя ребёнка и возраст<br><input id="child" required placeholder="Алексей, 9 лет"></label>
-          <label>Телефон или e-mail<br><input id="contactinfo" required placeholder="+7 900 000 00 00 или email"></label>
-          <label>Кратко о цели<br><textarea id="note" rows="3" placeholder="Нужно подтянуть грамматику / подготовиться к школе"></textarea></label>
-          <label style="display:flex;align-items:center;gap:8px;margin-top:10px;font-size:14px">
-    <input type="checkbox" id="consent" required>
-    Я согласен(на) на обработку персональных данных
-</label>
-		  <div style="margin-top:10px">
-            <button class="btn btn-primary" type="submit">Отправить заявку</button>
-            <button class="btn btn-outline" type="button" onclick="resetForm()">Очистить</button>
+    <!-- О мне -->
+    <section id="about">
+      <h2 class="section-title">Обо мне</h2>
+      <div class="about-grid">
+        <div class="about-text">
+          <h3>Привет! 👋 Я — Дина</h3>
+          <p>Являюсь преподавателем английского языка для детей и подростков, а также преподаю Математику и Русский язык ученикам начальной школы. Моя миссия — сделать обучение интересным и эффективным для каждого ученика, независимо от возраста и уровня подготовки.</p>
+          <p>Я докажу, что учеба — это не скучные правила, а увлекательное путешествие в новый мир!</p>
+        </div>
+        <div class="about-features">
+          <div class="feature">
+            <div class="feature-icon">🎓</div>
+            <div>
+              <h4>Опыт и квалификация</h4>
+              <p>Два высших педагогических образования + международные сертификаты</p>
+            </div>
           </div>
-          <p id="result" class="small" style="margin-top:10px"></p>
-        </form>
-        <div class="info card" style="align-self:start">
-          <h4>Контакты</h4>
-          <p class="small">Дина Ахмедова<br>Выпускница ТВГУ и НГПУ<br>Работаю с учениками от 5 до 15 лет</p>
-          <p class="small">Телефон: <strong>+7 (900) 000-00-00</strong> (пример)</p>
-          <p class="small">E-mail: <strong>dina.tutor@example.com</strong> (пример)</p>
-          <p class="small">Занятия онлайн через zoom.</p>
+          <div class="feature">
+            <div class="feature-icon">🎯</div>
+            <div>
+              <h4>Индивидуальный подход даже в группах</h4>
+              <p>Каждый ученик получает максимум знаний независимо от формата занятий. Однако на групповых занятиях создается среда для еще большей практики языка, для обсуждения материала, для создания позитивной атмосферы соревнования</p>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">🚀</div>
+            <div>
+              <h4>Быстрые результаты</h4>
+              <p>Видимый прогресс уже за первые недели. Обратная связь для родителей. Конспекты урока</p>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">😊</div>
+            <div>
+              <h4>Дружеская атмосфера</h4>
+              <p>Комфортная обстановка для эффективного обучения</p>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="card">
-        <h3>Прайс</h3>
-        <ul class="small">
-          <li>Пробный урок (40 мин) — 500 руб.</li>
-          <li>Индивидуальный урок (45–60 мин) — 900–1300 руб.</li>
-          <li>Курсы подготовки — договорная цена.</li>
-        </ul>
-        <h4 style="margin-top:12px">Удобный график</h4>
-        <p class="small">Утро, дневные и вечерние часы — обсудим гибко под вас.</p>
       </div>
     </section>
 
-    <footer>
-      <div>© Дина Ахмедова — Репетитор. Все права защищены.</div>
-      <div style="margin-top:6px" class="small"></div>
-    </footer>
-  </div>
+    <!-- Программы -->
+    <section id="programs">
+      <h2 class="section-title">Мои программы</h2>
+      <div class="programs-grid">
+        <div class="program-card">
+          <div class="program-age">Ученики начальной школы 👶<br>7-10лет</div>
+          <p>Английский язык: Формирую любовь к языку с самого начала через интерактивные игры, песни, рассказы о себе.</p>
+          <div class="program-details">
+            ⏱️ 30-40 минут<br>
+            📅 1-2 раза в неделю<br>
+            💰 От 1000 руб.
+          </div>
+        </div>
+        <div class="program-card">
+          <div class="program-age">Ученики начальной школы 🎒<br>7-10 лет</div>
+          <p>Математика, русский язык</p>
+          <div class="program-details">
+            ⏱️ 45 минут<br>
+            📅 2-3 раза в неделю<br>
+            💰 От 1000 руб.
+          </div>
+        </div>
+        <div class="program-card">
+          <div class="program-age">Ученики средней школы 🎬<br>11-15 лет</div>
+          <p>Углубленная грамматика, разговорная практика, экзамены и проекты.</p>
+          <div class="program-details">
+            ⏱️ 60 минут<br>
+            📅 2-3 раза в неделю<br>
+            💰 От 1100 руб.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Отзывы -->
+    <section id="reviews">
+      <h2 class="section-title">Отзывы родителей</h2>
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <p>"Сын просит дополнительные уроки! Дина смогла заинтересовать его действительно."</p>
+          <div class="review-author">— Мария К.</div>
+        </div>
+        <div class="review-card">
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <p>"Дочка стала говорить по-английски намного увереннее. Спасибо за такой подход!"</p>
+          <div class="review-author">— Наталья П.</div>
+        </div>
+        <div class="review-card">
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <p>"Лучший репетитор из всех, кого мы пробовали. Рекомендуем всем друзьям!"</p>
+          <div class="review-author">— Иван С.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Контакты -->
+    <section id="contact">
+      <div class="contact-container">
+        <h2 class="section-title" style="color: white;">Свяжитесь со мной</h2>
+        <form class="contact-form" onsubmit="handleSubmit(event)">
+          <div class="form-group">
+            <label>Ваше имя</label>
+            <input type="text" required placeholder="Дина Ахмедова">
+          </div>
+          <div class="form-group">
+            <label>Email или телефон</label>
+            <input type="text" required placeholder="+7 900 123 45 67">
+          </div>
+          <div class="form-group">
+            <label>Сообщение</label>
+            <textarea rows="4" required placeholder="Расскажите о вашем ребенке и целях..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Отправить заявку</button>
+        </form>
+        <div class="contact-info">
+          <p>📞 <strong>+7 (999) 123-45-67</strong></p>
+          <p>✉️ <strong>dina@englishtutor.com</strong></p>
+          <p>💬 Zoom, Skype, WhatsApp</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 English Tutor. Все права защищены. Создано с ❤️</p>
+  </footer>
 
   <script>
-    function sendForm(){
-      const name = document.getElementById('name').value;
-      const child = document.getElementById('child').value;
-      const contact = document.getElementById('contactinfo').value;
-      const result = document.getElementById('result');
-      if(!name || !child || !contact){ result.textContent='Пожалуйста, заполните все обязательные поля.'; return }
-      result.textContent = 'Спасибо! Заявка отправлена. Я свяжусь с вами в ближайшее время.';
-      // Здесь можно подключить отправку на почту или CRM при размещении на сервере.
+    function handleSubmit(event) {
+      event.preventDefault();
+      alert('Спасибо за заявку! Я свяжусь с вами в ближайшее время.');
+      event.target.reset();
     }
-    function resetForm(){ document.querySelector('form').reset(); document.getElementById('result').textContent=''; }
   </script>
 </body>
 </html>
